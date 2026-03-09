@@ -1,18 +1,11 @@
 {
   "name": "atividade-1",
-  "author": "Arthur Azevedo Costa de Paula",
-  "description": "Atividade do curso Managing Packages with NPM do freeCodeCamp",
-  "keywords": [
-    "freecodecamp",
-    "npm",
-    "backend"
-  ],
-  "license": "MIT",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/index.js"
   },
-  "dependencies": {}
+  "dependencies": {
+    "express": "^5.2.1"
+  }
 }
