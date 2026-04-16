@@ -25,6 +25,7 @@ app.use((req, res, next) => {
 app.use("/session", routes.session);
 app.use("/users", routes.user);
 app.use("/messages", routes.message);
+app.use("/experiences", routes.experience);
 
 app.get("/", (req, res) => {
   res.send(
@@ -57,9 +58,16 @@ const createUsersWithMessages = async () => {
           text: "Published the Road to learn React",
         },
       ],
+      experiences: [
+        {
+          title: "Desenvolvedor Full Stack",
+          company: "Tech Solutions",
+          description: "Trabalhando com React e Node.js",
+        },
+      ],
     },
     {
-      include: [models.Message],
+      include: [models.Message, models.Experience],
     },
   );
 
@@ -71,13 +79,17 @@ const createUsersWithMessages = async () => {
         {
           text: "Happy to release ...",
         },
+      ],
+      experiences: [
         {
-          text: "Published a complete ...",
+          title: "Analista de Sistemas",
+          company: "Inovação S.A.",
+          description: "Modelagem de dados e APIs",
         },
       ],
     },
     {
-      include: [models.Message],
+      include: [models.Message, models.Experience],
     },
   );
 };
