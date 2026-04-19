@@ -1,4 +1,5 @@
 import Sequelize from "sequelize";
+import pg from "pg";
 import getUserModel from "./user";
 import getMessageModel from "./message";
 import getExperienceModel from "./experience";
@@ -6,7 +7,7 @@ import getTarefaModel from "./tarefa";
 
 const sequelize = new Sequelize(process.env.DATABASE_URL, {
   dialect: "postgres",
-  protocol: "postgres",
+  dialectModule: pg,
   dialectOptions: {
     ssl: {
       require: true,
