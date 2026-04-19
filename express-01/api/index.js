@@ -10,6 +10,7 @@ app.set("trust proxy", true);
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 app.use(async (req, res, next) => {
   req.context = {
     models,
@@ -17,6 +18,7 @@ app.use(async (req, res, next) => {
   };
   next();
 });
+
 app.use((req, res, next) => {
   console.log(`${req.method} ${req.path} - ${req.ip}`);
   next();
@@ -26,6 +28,9 @@ app.use("/session", routes.session);
 app.use("/users", routes.user);
 app.use("/messages", routes.message);
 app.use("/experiences", routes.experience);
+app.use("/tarefas", routes.tarefa);
+//app.get("/testar", (req, res) => res.send("Servidor vivo!"));
+
 
 app.get("/", (req, res) => {
   res.send(
